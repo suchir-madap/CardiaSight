@@ -30,7 +30,7 @@ final class ConnectViewModel: ObservableObject {
             self?.state = .temperature(value)
         }
         
-        useCase.onWriteLedState = { [weak self] value in
+        useCase.onWriteEKGStartState = { [weak self] value in
             self?.state = .ledState(value)
         }
         
@@ -50,6 +50,10 @@ final class ConnectViewModel: ObservableObject {
     func recordEKG() {
         useCase.readTemperature()
     }
+    
+//    func recordEKGdata() {
+//        useCase.notifyEKG(false)
+//    }
     
     func turnOnLed() {
         useCase.writeLedState(isOn: true)

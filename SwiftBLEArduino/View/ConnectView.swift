@@ -17,7 +17,7 @@ struct ConnectView: View {
     
     @State var isToggleOn: Bool = false
     @State var isPeripheralReady: Bool = false
-    @State var lastTemperature: String = "" // @State var lastTemperature: Int = 0
+    @State var lastEKGval: String = "" // @State var lastTemperature: Int = 0
 
     var body: some View {
         VStack {
@@ -43,7 +43,7 @@ struct ConnectView: View {
             ZStack {
                 CardView()
                 VStack {
-                    Text("\(lastTemperature) EKG")
+                    Text("\(lastEKGval) EKG")
                         .font(.largeTitle)
                     HStack {
                         Spacer()
@@ -61,27 +61,27 @@ struct ConnectView: View {
                     }
                 }
             }
-            ZStack {
-                CardView()
-                VStack {
-                    Text("Take EKG Recording")
-                        .font(.largeTitle)
-                    HStack {
-                        Spacer()
-                            .frame(alignment: .trailing)
-                        Toggle("Notify", isOn: $isToggleOn)
-                            .disabled(!isPeripheralReady)
-                        Button("READ") {
-                            viewModel.recordEKG()
-                        }
-                        .disabled(!isPeripheralReady)
-                        .buttonStyle(.borderedProminent)
-                        Spacer()
-                            .frame(alignment: .trailing)
-
-                    }
-                }
-            }
+//            ZStack { // SUCHIR EKG Recording button
+//                CardView()
+//                VStack {
+//                    Text("Take EKG Recording")
+//                        .font(.largeTitle)
+//                    HStack {
+//                        Spacer()
+//                            .frame(alignment: .trailing)
+////                        Toggle("Notify", isOn: $isToggleOn)
+////                            .disabled(!isPeripheralReady)
+//                        Button("Start EKG") {
+//                            viewModel.recordEKG()
+//                        }
+//                        .disabled(!isPeripheralReady)
+//                        .buttonStyle(.borderedProminent)
+//                        Spacer()
+//                            .frame(alignment: .trailing)
+//
+//                    }
+//                }
+//            }
             
             Spacer()
                 .frame(maxHeight:.infinity)
@@ -106,7 +106,7 @@ struct ConnectView: View {
             case .ready:
                 isPeripheralReady = true
             case let .temperature(temp):
-                lastTemperature = temp
+                lastEKGval = temp
             default:
                 print("Not handled")
             }
@@ -117,6 +117,7 @@ struct ConnectView: View {
 struct PeripheralView_Previews: PreviewProvider {
     
     final class FakeUseCase: PeripheralUseCaseProtocol {
+        var onWriteEKGStartState: ((Bool) -> Void)?
         
         var peripheral: Peripheral?
         

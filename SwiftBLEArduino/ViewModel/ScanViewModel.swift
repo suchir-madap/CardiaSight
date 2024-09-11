@@ -47,7 +47,7 @@ final class ScanViewModel: ObservableObject {
     
     // MARK: - From View to ViewModel
     func scan() {
-        useCase.scan(for: [UUIDs.ledService])
+        useCase.scan(for: [UUIDs.startEKGService])
     }
     
     func connect(to peripheral: Peripheral) {
