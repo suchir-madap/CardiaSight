@@ -39,11 +39,11 @@ final class ConnectViewModel: ObservableObject {
         }
     }
     
-    func startNotifyTemperature() {
+    func startNotifyEKG() {
         useCase.notifyTemperature(true)
     }
     
-    func stopNotifyTemperature() {
+    func stopNotifyEKG() {
         useCase.notifyTemperature(false)
     }
     

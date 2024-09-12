@@ -14,8 +14,8 @@
             filePath = "SwiftBLEArduino/View/ConnectView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "PeripheralView_Previews"
             landmarkType = "14">
          </BreakpointContent>

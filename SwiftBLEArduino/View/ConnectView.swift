@@ -18,7 +18,8 @@ struct ConnectView: View {
     @State var isToggleOn: Bool = false
     @State var isPeripheralReady: Bool = false
     @State var lastEKGval: String = "" // @State var lastTemperature: Int = 0
-
+    @State var ekgData: [String] = []
+    
     var body: some View {
         VStack {
             Text(viewModel.connectedPeripheral.name ?? "Unknown")
@@ -34,7 +35,8 @@ struct ConnectView: View {
                     .disabled(!isPeripheralReady)
                     .buttonStyle(.borderedProminent)
                     Button("Off") {
-                        viewModel.turnOffLed()
+                        print($ekgData)
+//                        viewModel.turnOffLed()
                     }
                     .disabled(!isPeripheralReady)
                     .buttonStyle(.borderedProminent)
@@ -48,40 +50,23 @@ struct ConnectView: View {
                     HStack {
                         Spacer()
                             .frame(alignment: .trailing)
-                        Toggle("Notify", isOn: $isToggleOn)
-                            .disabled(!isPeripheralReady)
-                        Button("READ") {
-                            viewModel.recordEKG()
+                        
+                        Button("Start Recording") {
+                            isToggleOn.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
+                                viewModel.turnOnLed()
+                            }
                         }
-                        .disabled(!isPeripheralReady)
-                        .buttonStyle(.borderedProminent)
+                            .disabled(!isPeripheralReady)
+                            .buttonStyle(.borderedProminent)
+                        
+                        
                         Spacer()
                             .frame(alignment: .trailing)
 
                     }
                 }
             }
-//            ZStack { // SUCHIR EKG Recording button
-//                CardView()
-//                VStack {
-//                    Text("Take EKG Recording")
-//                        .font(.largeTitle)
-//                    HStack {
-//                        Spacer()
-//                            .frame(alignment: .trailing)
-////                        Toggle("Notify", isOn: $isToggleOn)
-////                            .disabled(!isPeripheralReady)
-//                        Button("Start EKG") {
-//                            viewModel.recordEKG()
-//                        }
-//                        .disabled(!isPeripheralReady)
-//                        .buttonStyle(.borderedProminent)
-//                        Spacer()
-//                            .frame(alignment: .trailing)
-//
-//                    }
-//                }
-//            }
             
             Spacer()
                 .frame(maxHeight:.infinity)
@@ -96,9 +81,9 @@ struct ConnectView: View {
         }
         .onChange(of: isToggleOn) {
             if isToggleOn {
-                viewModel.startNotifyTemperature()
+                viewModel.startNotifyEKG()
             } else {
-                viewModel.stopNotifyTemperature()
+                viewModel.stopNotifyEKG()
             }
         }
         .onReceive(viewModel.$state) { state in
@@ -110,6 +95,9 @@ struct ConnectView: View {
             default:
                 print("Not handled")
             }
+        }
+        .onChange(of: lastEKGval) { oldValue, newValue in
+            ekgData.append(newValue)
         }
     }
 }

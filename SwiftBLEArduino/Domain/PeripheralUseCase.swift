@@ -13,7 +13,7 @@ protocol PeripheralUseCaseProtocol {
     var peripheral: Peripheral? { get set }
     
     var onWriteEKGStartState: ((Bool) -> Void)? { get set }
-    var onReadTemperature: ((String) -> Void)? { get set } // On Read will most likely be deprecated
+     var onReadTemperature: ((String) -> Void)? { get set } // On Read will most likely be deprecated
     var onPeripheralReady: (() -> Void)? { get set }
     var onError: ((Error) -> Void)? { get set }
 
@@ -38,7 +38,7 @@ class PeripheralUseCase: NSObject, PeripheralUseCaseProtocol {
     }
     
     var onWriteEKGStartState: ((Bool) -> Void)?
-    var onReadTemperature: ((String) -> Void)? // var onReadTemperature: ((Int) -> Void)?
+     var onReadTemperature: ((String) -> Void)? // var onReadTemperature: ((Int) -> Void)?
     var onPeripheralReady: (() -> Void)?
     var onError: ((Error) -> Void)?
     
