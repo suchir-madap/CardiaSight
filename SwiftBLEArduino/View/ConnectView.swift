@@ -19,85 +19,125 @@ struct ConnectView: View {
     @State var isPeripheralReady: Bool = false
     @State var lastEKGval: String = "" // @State var lastTemperature: Int = 0
     @State var ekgData: [String] = []
+    @State var leads12: [[Double]] = []
     
     var body: some View {
-        VStack {
-            Text(viewModel.connectedPeripheral.name ?? "Unknown")
-                .font(.title)
-            ZStack {
-                CardView()
-                HStack {
-                    Text("Led")
-                        .padding(.horizontal)
-                    Button("On") {
-                        viewModel.turnOnLed()
-                    }
-                    .disabled(!isPeripheralReady)
-                    .buttonStyle(.borderedProminent)
-                    Button("Off") {
-                        print($ekgData)
-//                        viewModel.turnOffLed()
-                    }
-                    .disabled(!isPeripheralReady)
-                    .buttonStyle(.borderedProminent)
-                }
-            }
-            ZStack {
-                CardView()
-                VStack {
-                    Text("\(lastEKGval) EKG")
-                        .font(.largeTitle)
+        NavigationStack {
+            
+            VStack {
+                Text(viewModel.connectedPeripheral.name ?? "Unknown")
+                    .font(.title)
+                ZStack {
+                    CardView()
                     HStack {
-                        Spacer()
-                            .frame(alignment: .trailing)
-                        
-                        Button("Start Recording") {
-                            isToggleOn.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
-                                viewModel.turnOnLed()
-                            }
+                        Text("Led")
+                            .padding(.horizontal)
+                        Button("On") {
+                            viewModel.turnOnLed()
                         }
+                        .disabled(!isPeripheralReady)
+                        .buttonStyle(.borderedProminent)
+                        Button("Off") {
+                            print($ekgData)
+                            //                        viewModel.turnOffLed()
+                        }
+                        .disabled(!isPeripheralReady)
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
+                ZStack {
+                    CardView()
+                    VStack {
+                        Text("\(lastEKGval) EKG")
+                            .font(.largeTitle)
+                        HStack {
+                            Spacer()
+                                .frame(alignment: .trailing)
+                            
+                            Button("Start Recording") {
+                                isToggleOn.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
+                                    viewModel.turnOnLed()
+                                }
+                            }
                             .disabled(!isPeripheralReady)
                             .buttonStyle(.borderedProminent)
-                        
-                        
-                        Spacer()
-                            .frame(alignment: .trailing)
-
+                            
+                            
+                            Spacer()
+                                .frame(alignment: .trailing)
+                            
+                        }
                     }
                 }
+                
+                ZStack {
+                    CardView()
+                    VStack {
+                        Text("Compute Reconstruction")
+                            .font(.largeTitle)
+                        VStack {
+                            Spacer()
+                                .frame(alignment: .trailing)
+                            
+                            Button("Reconstruct") {
+                                leads12 = reconstruction(in: ekgData)
+                                //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.20) {
+                                //                                GraphView(dataArrays: leads12)
+                                //                            }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
+                            NavigationLink(destination: GraphView(dataArrays: leads12)) {
+                                Text("Show Graphs")
+                                    .buttonStyle(.borderedProminent)
+                            }
+                            .disabled(leads12.isEmpty)
+                            
+                            
+                            Spacer()
+                                .frame(alignment: .trailing)
+                            
+                        }
+                    }
+                }
+                
+//                if !leads12.isEmpty {
+//                    GraphView(dataArrays: leads12)
+//                }
+                
+                Spacer()
+                    .frame(maxHeight:.infinity)
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Disconnect")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.horizontal)
             }
-            
-            Spacer()
-                .frame(maxHeight:.infinity)
-            Button {
-                dismiss()
-            } label: {
-                Text("Disconnect")
-                    .frame(maxWidth: .infinity)
+            .onChange(of: isToggleOn) {
+                if isToggleOn {
+                    viewModel.startNotifyEKG()
+                } else {
+                    viewModel.stopNotifyEKG()
+                }
             }
-            .buttonStyle(.borderedProminent)
-            .padding(.horizontal)
-        }
-        .onChange(of: isToggleOn) {
-            if isToggleOn {
-                viewModel.startNotifyEKG()
-            } else {
-                viewModel.stopNotifyEKG()
+            .onReceive(viewModel.$state) { state in
+                switch state {
+                case .ready:
+                    isPeripheralReady = true
+                case let .temperature(temp):
+                    lastEKGval = temp
+                default:
+                    print("Not handled")
+                }
             }
-        }
-        .onReceive(viewModel.$state) { state in
-            switch state {
-            case .ready:
-                isPeripheralReady = true
-            case let .temperature(temp):
-                lastEKGval = temp
-            default:
-                print("Not handled")
+            .onChange(of: lastEKGval) { oldValue, newValue in
+                
+                ekgData.append(newValue)
             }
-        }
-        .onChange(of: lastEKGval) { oldValue, newValue in
-            ekgData.append(newValue)
         }
     }
 }

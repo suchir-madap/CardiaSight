@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD70E2C92A62000232274 /* ReconstructionV1.swift */; };
+		F04DD7112C92B6E100232274 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD7102C92B6E100232274 /* GraphView.swift */; };
 		F0D2E3112C78E2050065D210 /* SwiftBLEArduinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */; };
 		F0D2E3152C78E2070065D210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3142C78E2070065D210 /* Assets.xcassets */; };
 		F0D2E3182C78E2070065D210 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3172C78E2070065D210 /* Preview Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F04DD70E2C92A62000232274 /* ReconstructionV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconstructionV1.swift; sourceTree = "<group>"; };
+		F04DD7102C92B6E100232274 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		F0D2E30D2C78E2050065D210 /* SwiftBLEArduino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBLEArduino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBLEArduinoApp.swift; sourceTree = "<group>"; };
 		F0D2E3142C78E2070065D210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F04DD70D2C92A5E300232274 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				F04DD70E2C92A62000232274 /* ReconstructionV1.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		F0D2E3042C78E2050065D210 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 		F0D2E30F2C78E2050065D210 /* SwiftBLEArduino */ = {
 			isa = PBXGroup;
 			children = (
+				F04DD70D2C92A5E300232274 /* Functions */,
 				F0D2E3212C78E2600065D210 /* ViewModel */,
 				F0D2E3202C78E2550065D210 /* View */,
 				F0D2E31F2C78E2440065D210 /* Domain */,
@@ -107,6 +120,7 @@
 			children = (
 				F0D2E32A2C78E3090065D210 /* ScanView.swift */,
 				F0D2E32C2C78E32D0065D210 /* ConnectView.swift */,
+				F04DD7102C92B6E100232274 /* GraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +206,8 @@
 			files = (
 				F0D2E32B2C78E3090065D210 /* ScanView.swift in Sources */,
 				F0D2E32D2C78E32D0065D210 /* ConnectView.swift in Sources */,
+				F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */,
+				F04DD7112C92B6E100232274 /* GraphView.swift in Sources */,
 				F0D2E3252C78E2A30065D210 /* UUIDs.swift in Sources */,
 				F0D2E32F2C78E34D0065D210 /* ScanViewModel.swift in Sources */,
 				F0D2E3272C78E2BE0065D210 /* CentralUseCase.swift in Sources */,
