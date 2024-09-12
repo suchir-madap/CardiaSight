@@ -41,7 +41,7 @@ struct ChartView: View {
                     }
                     .frame(width: 1000, height: UIScreen.main.bounds.height / 3)
                     .chartXAxis {
-                        AxisMarks(values: [0]) { _ in
+                        AxisMarks(values: Array(stride(from: 0, to: 3000, by: 500))) { _ in
                             AxisValueLabel {
                                 Text("ms")
                                     .font(.caption)

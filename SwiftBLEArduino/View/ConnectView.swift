@@ -89,7 +89,8 @@ struct ConnectView: View {
                                 .frame(alignment: .trailing)
                             
                             Button("Reconstruct") {
-                                leads12 = reconstruction(in: ekgData)
+                                leads12 = reconstruction(in: leads3)
+//                                leads12 = reconstruction2(in: ekgData)
                                 //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.20) {
                                 //                                GraphView(dataArrays: leads12)
                                 //                            }
@@ -117,7 +118,7 @@ struct ConnectView: View {
                         Spacer()
                             .frame(alignment: .trailing)
                     }
-                    var lead1val: [Double] = smoothFunction(inputArray: leads3[0],  period: 5)
+                    let lead1val: [Double] = smoothFunction(inputArray: leads3[0],  period: 5)
                     ChartView(data: lead1val, title: "Lead I")
                 }
                 
