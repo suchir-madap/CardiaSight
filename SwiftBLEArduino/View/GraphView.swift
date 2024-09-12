@@ -50,7 +50,7 @@ struct ChartView: View {
                         }
                     }
                     .chartYAxis {
-                        AxisMarks(position: .leading, values: [0]) { _ in
+                        AxisMarks(position: .leading, values: Array(stride(from: 0, to: 16_777_216, by: 2_000_000))) { _ in
                             AxisValueLabel {
 //                                Text("mV")
                                     
@@ -95,7 +95,7 @@ struct GridShape: Shape {
 }
 
 struct GraphView: View {
-    let labels = ["Lead I", "Lead II", "Lead III", "aVF", "aVR", "aVL", "V1", "V2", "V3", "V4", "V5", "V6"]
+    let labels = ["Lead I", "Lead II", "Lead III", "aVL", "aVF", "aVR", "V1", "V2", "V3", "V4", "V5", "V6"]
     var dataArrays: [[Double]] = []
 
     init(dataArrays: [[Double]]) {

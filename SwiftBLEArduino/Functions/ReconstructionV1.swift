@@ -14,7 +14,7 @@ func reconstruction(in streamedData: [String]) -> [[Double]] {
     
     for packet in streamedData {
         let sample = packet.split(separator: ";")
-        print(sample)
+//        print(sample)
         for data in sample {
             let lead = data.split(separator: ",")
 //            var parsedLead: [Double] = []
@@ -35,10 +35,28 @@ func reconstruction(in streamedData: [String]) -> [[Double]] {
         }
     }
     
+    for i in 0...11 {
+        result[i] = smoothFunction(inputArray: result[i],  period: 5)
+    }
+    
+    
+    print(result)
     
     
     print("done reconstruction")
     return result
+}
+
+
+func dataExpansion(in liveData: String, in dataStore: inout [[Double]]) {
+    let sample = liveData.split(separator: ";")
+    for data in sample {
+        let lead = data.split(separator: ",")
+        for i in 1...3 {
+            dataStore[i - 1].append(Double(lead[i])!)
+        }
+    }
+    
 }
 
 

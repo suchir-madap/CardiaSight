@@ -19,6 +19,7 @@ struct ConnectView: View {
     @State var isPeripheralReady: Bool = false
     @State var lastEKGval: String = "" // @State var lastTemperature: Int = 0
     @State var ekgData: [String] = []
+    @State var leads3: [[Double]] = [[], [], []]
     @State var leads12: [[Double]] = []
     
     var body: some View {
@@ -27,24 +28,24 @@ struct ConnectView: View {
             VStack {
                 Text(viewModel.connectedPeripheral.name ?? "Unknown")
                     .font(.title)
-                ZStack {
-                    CardView()
-                    HStack {
-                        Text("Led")
-                            .padding(.horizontal)
-                        Button("On") {
-                            viewModel.turnOnLed()
-                        }
-                        .disabled(!isPeripheralReady)
-                        .buttonStyle(.borderedProminent)
-                        Button("Off") {
-                            print($ekgData)
-                            //                        viewModel.turnOffLed()
-                        }
-                        .disabled(!isPeripheralReady)
-                        .buttonStyle(.borderedProminent)
-                    }
-                }
+//                ZStack {
+//                    CardView()
+//                    HStack {
+//                        Text("Led")
+//                            .padding(.horizontal)
+//                        Button("On") {
+//                            viewModel.turnOnLed()
+//                        }
+//                        .disabled(!isPeripheralReady)
+//                        .buttonStyle(.borderedProminent)
+//                        Button("Off") {
+//                            print($ekgData)
+//                            //                        viewModel.turnOffLed()
+//                        }
+//                        .disabled(!isPeripheralReady)
+//                        .buttonStyle(.borderedProminent)
+//                    }
+//                }
                 ZStack {
                     CardView()
                     VStack {
@@ -59,6 +60,13 @@ struct ConnectView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
                                     viewModel.turnOnLed()
                                 }
+                            }
+                            .disabled(!isPeripheralReady)
+                            .buttonStyle(.borderedProminent)
+                            
+                            Button("Off") {
+                                print($ekgData)
+                                //                        viewModel.turnOffLed()
                             }
                             .disabled(!isPeripheralReady)
                             .buttonStyle(.borderedProminent)
@@ -101,13 +109,25 @@ struct ConnectView: View {
                         }
                     }
                 }
+                ZStack {
+                    CardView()
+//                    Text("Compute Reconstruction")
+//                        .font(.largeTitle)
+                    VStack {
+                        Spacer()
+                            .frame(alignment: .trailing)
+                    }
+                    var lead1val: [Double] = smoothFunction(inputArray: leads3[0],  period: 5)
+                    ChartView(data: lead1val, title: "Lead I")
+                }
+                
                 
 //                if !leads12.isEmpty {
 //                    GraphView(dataArrays: leads12)
 //                }
                 
-                Spacer()
-                    .frame(maxHeight:.infinity)
+//                Spacer()
+//                    .frame(maxHeight:.infinity)
                 Button {
                     dismiss()
                 } label: {
@@ -135,8 +155,11 @@ struct ConnectView: View {
                 }
             }
             .onChange(of: lastEKGval) { oldValue, newValue in
-                
+                if (newValue == "done") {
+                    
+                }
                 ekgData.append(newValue)
+                dataExpansion(in: newValue, in: &leads3)
             }
         }
     }
