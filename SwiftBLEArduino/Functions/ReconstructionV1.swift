@@ -31,10 +31,10 @@ func reconstruction(in streamedData: [[Double]]) -> [[Double]] {
     }
     
     
-    print(result)
+//    print(result)
     
     
-    print("done reconstruction")
+//    print("done reconstruction")
     return result
 }
 
@@ -70,10 +70,10 @@ func reconstruction2(in streamedData: [String]) -> [[Double]] {
     }
     
     
-    print(result)
+//    print(result)
     
     
-    print("done reconstruction")
+//    print("done reconstruction")
     return result
 }
 

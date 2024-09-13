@@ -15,12 +15,14 @@ struct ConnectView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var showGraphs = false
     @State var isToggleOn: Bool = false
     @State var isPeripheralReady: Bool = false
     @State var lastEKGval: String = "" // @State var lastTemperature: Int = 0
     @State var ekgData: [String] = []
     @State var leads3: [[Double]] = [[], [], []]
     @State var leads12: [[Double]] = []
+    @State private var isBluetooth: Bool = true
     
     var body: some View {
         NavigationStack {
@@ -28,34 +30,30 @@ struct ConnectView: View {
             VStack {
                 Text(viewModel.connectedPeripheral.name ?? "Unknown")
                     .font(.title)
-//                ZStack {
-//                    CardView()
-//                    HStack {
-//                        Text("Led")
-//                            .padding(.horizontal)
-//                        Button("On") {
-//                            viewModel.turnOnLed()
-//                        }
-//                        .disabled(!isPeripheralReady)
-//                        .buttonStyle(.borderedProminent)
-//                        Button("Off") {
-//                            print($ekgData)
-//                            //                        viewModel.turnOffLed()
-//                        }
-//                        .disabled(!isPeripheralReady)
-//                        .buttonStyle(.borderedProminent)
-//                    }
-//                }
+                    .bold()
+                
                 ZStack {
                     CardView()
                     VStack {
-                        Text("\(lastEKGval) EKG")
-                            .font(.largeTitle)
-                        HStack {
-                            Spacer()
-                                .frame(alignment: .trailing)
+                        Spacer()
+//                           .frame(alignment: .trailing)
+//                        Text("\(lastEKGval) EKG")
+//                            .font(.largeTitle)
+                        VStack(alignment: .center, spacing: 16) {
+//                            Spacer()
+//                                .frame(alignment: .trailing)
                             
-                            Button("Start Recording") {
+                            Image("CardiaRing2") // Replace "YourImageName" with the actual name of your image file
+                                .resizable() // Makes the image resizable
+                                .aspectRatio(contentMode: .fit) // Maintains the aspect ratio
+                                .frame(width: 120, height: 120) // Sets the frame size
+                                .clipShape(Circle()) // Clips the image to a circle shape
+                                .overlay(Circle().stroke(isBluetooth ? Color.green : Color.red, lineWidth: 4)) // Adds a border
+                                .shadow(radius: 10) // Adds a shadow
+                                .padding()
+                                .rotationEffect(Angle(degrees: 10))
+                            
+                            Button("Record EKG") {
                                 isToggleOn.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
                                     viewModel.turnOnLed()
@@ -63,57 +61,38 @@ struct ConnectView: View {
                             }
                             .disabled(!isPeripheralReady)
                             .buttonStyle(.borderedProminent)
+                            .frame(width: 200, height: 50) // Adjust width and height as needed
+                            .font(.title) 
+                            .bold()
+                            .tint(Color(red: 0.9, green: 0.2, blue: 0.2))
                             
-                            Button("Off") {
-                                print($ekgData)
-                                //                        viewModel.turnOffLed()
+
+                            NavigationLink(destination: GraphView(dataArrays: leads12)) {
+                                Text("Show Recordings")
+                                    .buttonStyle(.borderedProminent)
+                                    .frame(maxWidth: .infinity) // Make sure the text is centered
+                                    .multilineTextAlignment(.center)
+                                    .bold()
+                                
                             }
-                            .disabled(!isPeripheralReady)
+                            .disabled(leads12.isEmpty)
                             .buttonStyle(.borderedProminent)
+                            .frame(width: 200, height: 50)
+                            .tint(Color(red: 0.9, green: 0.2, blue: 0.2))
                             
-                            
-                            Spacer()
-                                .frame(alignment: .trailing)
+//                            Spacer()
+//                                .frame(alignment: .trailing)
                             
                         }
+                        .frame(maxWidth: .infinity) // Center the VStack within the parent
+                        .padding()
+
+                        Spacer()
                     }
                 }
                 
                 ZStack {
                     CardView()
-                    VStack {
-                        Text("Compute Reconstruction")
-                            .font(.largeTitle)
-                        VStack {
-                            Spacer()
-                                .frame(alignment: .trailing)
-                            
-                            Button("Reconstruct") {
-                                leads12 = reconstruction(in: leads3)
-//                                leads12 = reconstruction2(in: ekgData)
-                                //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.20) {
-                                //                                GraphView(dataArrays: leads12)
-                                //                            }
-                            }
-                            .buttonStyle(.borderedProminent)
-                            
-                            NavigationLink(destination: GraphView(dataArrays: leads12)) {
-                                Text("Show Graphs")
-                                    .buttonStyle(.borderedProminent)
-                            }
-                            .disabled(leads12.isEmpty)
-                            
-                            
-                            Spacer()
-                                .frame(alignment: .trailing)
-                            
-                        }
-                    }
-                }
-                ZStack {
-                    CardView()
-//                    Text("Compute Reconstruction")
-//                        .font(.largeTitle)
                     VStack {
                         Spacer()
                             .frame(alignment: .trailing)
@@ -137,6 +116,7 @@ struct ConnectView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .padding(.horizontal)
+                .tint(Color(red: 0.9, green: 0.2, blue: 0.2))
             }
             .onChange(of: isToggleOn) {
                 if isToggleOn {
@@ -156,11 +136,18 @@ struct ConnectView: View {
                 }
             }
             .onChange(of: lastEKGval) { oldValue, newValue in
-                if (newValue == "done") {
-                    
+                if (newValue != "done") {
+                    ekgData.append(newValue)
+                    dataExpansion(in: newValue, in: &leads3)
+                } else {
+                    leads12 = reconstruction(in: leads3)
+                    showGraphs = true
+                    // call GraphView(dataArrays: leads12)
                 }
-                ekgData.append(newValue)
-                dataExpansion(in: newValue, in: &leads3)
+                
+            }
+            .sheet(isPresented: $showGraphs) {
+                GraphView(dataArrays: leads12)
             }
         }
     }

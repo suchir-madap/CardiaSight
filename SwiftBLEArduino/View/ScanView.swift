@@ -18,6 +18,11 @@ struct ScanView: View {
     
     var body: some View {
         VStack{
+            Image("CardiaSightBanner2")
+                .resizable() // Makes the image resizable
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 350) // Adjust width to 80% of the original
+                .padding()
             List(peripheralList, id: \.id) { peripheral  in
                 Text("\(peripheral.name ?? "N/A")")
                     .font(.headline)
@@ -34,6 +39,7 @@ struct ScanView: View {
                 Text("Connect to Device")
                     .frame(maxWidth: .infinity)
             }
+            .tint(Color(red: 0.9, green: 0.2, blue: 0.2))
             .disabled(!isScanButtonEnabled)
             .buttonStyle(.borderedProminent)
             .padding(.horizontal)
@@ -50,7 +56,15 @@ struct ScanView: View {
                 print("Not handled")
             }
         }
-        .navigationTitle("CardiaSight")
+//        .navigationTitle("CardiaSight")
+//        .navigationBarTitleDisplayMode(.inline) // Ensure the title is inline
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                Image("CardiaSightLogo") // Replace "logo" with the name of your image asset
+//                    .resizable()
+//                    .frame(width: 50, height: 50) // Adjust size as needed
+//            }
+//        }
         .navigationDestination(isPresented: $shouldShowDetail) {
             if case let .connected(peripheral) = viewModel.state  {
                 let viewModel = ConnectViewModel(useCase: PeripheralUseCase(),
