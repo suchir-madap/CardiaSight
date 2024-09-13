@@ -41,7 +41,7 @@ struct ChartView: View {
                     }
                     .frame(width: 1000, height: UIScreen.main.bounds.height / 3)
                     .chartXAxis {
-                        AxisMarks(values: Array(stride(from: 0, to: 3000, by: 500))) { _ in
+                        AxisMarks(values: Array(stride(from: 0, to: 2500, by: 500))) { _ in
                             AxisValueLabel {
                                 Text("ms")
                                     .font(.caption)
@@ -106,7 +106,7 @@ struct GraphView: View {
         VStack {
             Text("Raghav's EKG Recording 9/12/24")
                 .bold()
-                .padding(.top)
+//                .padding(.top)
             
             ScrollView {
                 LazyVStack(spacing: 20) {

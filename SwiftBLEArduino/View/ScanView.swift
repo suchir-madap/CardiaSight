@@ -27,11 +27,11 @@ struct ScanView: View {
                     }
             }
             .listStyle(.plain)
-            Spacer()
+//            Spacer()
             Button {
                 viewModel.scan()
             } label: {
-                Text("Start Scan")
+                Text("Connect to Device")
                     .frame(maxWidth: .infinity)
             }
             .disabled(!isScanButtonEnabled)
@@ -50,7 +50,7 @@ struct ScanView: View {
                 print("Not handled")
             }
         }
-        .navigationTitle("Scan list")
+        .navigationTitle("CardiaSight")
         .navigationDestination(isPresented: $shouldShowDetail) {
             if case let .connected(peripheral) = viewModel.state  {
                 let viewModel = ConnectViewModel(useCase: PeripheralUseCase(),

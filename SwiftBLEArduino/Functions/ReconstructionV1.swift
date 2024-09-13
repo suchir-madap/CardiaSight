@@ -12,10 +12,13 @@ import Foundation
 func reconstruction(in streamedData: [[Double]]) -> [[Double]] {
     var result: [[Double]] = Array(repeating: [], count: 12)
     
+    if (streamedData[0].count == 0) {
+        return result
+    }
     for index in 0...(streamedData[0].count - 1) {
         var parsedLead: [Double] = []
         for val in 0...2 {
-            parsedLead.append(result[val][index])
+            parsedLead.append(streamedData[val][index])
         }
         conversion3to12(in: parsedLead, in: &result)
         
