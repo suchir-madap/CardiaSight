@@ -104,7 +104,7 @@ struct GraphView: View {
 
     var body: some View {
         VStack {
-            Text("Raghav's EKG Recording 9/12/24")
+            Text("Raghav's ECG Recording 9/12/24")
                 .bold()
 //                .padding(.top)
             

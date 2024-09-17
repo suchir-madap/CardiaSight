@@ -92,7 +92,7 @@ func dataExpansion(in liveData: String, in dataStore: inout [[Double]]) {
 
 func conversion3to12(in parsedLead: [Double], in result: inout [[Double]]) {
 //    0 - l1, 1 - pl2, 2 - pv2
-    let l1_original: Double = parsedLead[0]
+    let l1_original: Double = parsedLead[0] * 2.5
     let pl2: Double = parsedLead[1]
     let pv2: Double = parsedLead[2]
 //    calculated leads

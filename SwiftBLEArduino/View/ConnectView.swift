@@ -53,7 +53,7 @@ struct ConnectView: View {
                                 .padding()
                                 .rotationEffect(Angle(degrees: 10))
                             
-                            Button("Record EKG") {
+                            Button("Record ECG") {
                                 isToggleOn.toggle()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.10) {
                                     viewModel.turnOnLed()
