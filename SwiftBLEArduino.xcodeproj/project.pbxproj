@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD70E2C92A62000232274 /* ReconstructionV1.swift */; };
+		F04DD7112C92B6E100232274 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD7102C92B6E100232274 /* GraphView.swift */; };
 		F0D2E3112C78E2050065D210 /* SwiftBLEArduinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */; };
-		F0D2E3132C78E2050065D210 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3122C78E2050065D210 /* ContentView.swift */; };
 		F0D2E3152C78E2070065D210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3142C78E2070065D210 /* Assets.xcassets */; };
 		F0D2E3182C78E2070065D210 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3172C78E2070065D210 /* Preview Assets.xcassets */; };
+		F0D2E3232C78E2860065D210 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3222C78E2860065D210 /* Peripheral.swift */; };
+		F0D2E3252C78E2A30065D210 /* UUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3242C78E2A30065D210 /* UUIDs.swift */; };
+		F0D2E3272C78E2BE0065D210 /* CentralUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3262C78E2BE0065D210 /* CentralUseCase.swift */; };
+		F0D2E3292C78E2DA0065D210 /* PeripheralUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3282C78E2DA0065D210 /* PeripheralUseCase.swift */; };
+		F0D2E32B2C78E3090065D210 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E32A2C78E3090065D210 /* ScanView.swift */; };
+		F0D2E32D2C78E32D0065D210 /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E32C2C78E32D0065D210 /* ConnectView.swift */; };
+		F0D2E32F2C78E34D0065D210 /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E32E2C78E34D0065D210 /* ScanViewModel.swift */; };
+		F0D2E3312C78E36C0065D210 /* ConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3302C78E36C0065D210 /* ConnectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F04DD70E2C92A62000232274 /* ReconstructionV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconstructionV1.swift; sourceTree = "<group>"; };
+		F04DD7102C92B6E100232274 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		F0D2E30D2C78E2050065D210 /* SwiftBLEArduino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBLEArduino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBLEArduinoApp.swift; sourceTree = "<group>"; };
-		F0D2E3122C78E2050065D210 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0D2E3142C78E2070065D210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0D2E3172C78E2070065D210 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F0D2E3222C78E2860065D210 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		F0D2E3242C78E2A30065D210 /* UUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDs.swift; sourceTree = "<group>"; };
+		F0D2E3262C78E2BE0065D210 /* CentralUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralUseCase.swift; sourceTree = "<group>"; };
+		F0D2E3282C78E2DA0065D210 /* PeripheralUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralUseCase.swift; sourceTree = "<group>"; };
+		F0D2E32A2C78E3090065D210 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		F0D2E32C2C78E32D0065D210 /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
+		F0D2E32E2C78E34D0065D210 /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		F0D2E3302C78E36C0065D210 /* ConnectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F04DD70D2C92A5E300232274 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				F04DD70E2C92A62000232274 /* ReconstructionV1.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		F0D2E3042C78E2050065D210 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +77,12 @@
 		F0D2E30F2C78E2050065D210 /* SwiftBLEArduino */ = {
 			isa = PBXGroup;
 			children = (
+				F04DD70D2C92A5E300232274 /* Functions */,
+				F0D2E3212C78E2600065D210 /* ViewModel */,
+				F0D2E3202C78E2550065D210 /* View */,
+				F0D2E31F2C78E2440065D210 /* Domain */,
+				F0D2E31E2C78E23D0065D210 /* Model */,
 				F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */,
-				F0D2E3122C78E2050065D210 /* ContentView.swift */,
 				F0D2E3142C78E2070065D210 /* Assets.xcassets */,
 				F0D2E3162C78E2070065D210 /* Preview Content */,
 			);
@@ -65,6 +95,43 @@
 				F0D2E3172C78E2070065D210 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0D2E31E2C78E23D0065D210 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2E3222C78E2860065D210 /* Peripheral.swift */,
+				F0D2E3242C78E2A30065D210 /* UUIDs.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0D2E31F2C78E2440065D210 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2E3262C78E2BE0065D210 /* CentralUseCase.swift */,
+				F0D2E3282C78E2DA0065D210 /* PeripheralUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F0D2E3202C78E2550065D210 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2E32A2C78E3090065D210 /* ScanView.swift */,
+				F0D2E32C2C78E32D0065D210 /* ConnectView.swift */,
+				F04DD7102C92B6E100232274 /* GraphView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0D2E3212C78E2600065D210 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F0D2E32E2C78E34D0065D210 /* ScanViewModel.swift */,
+				F0D2E3302C78E36C0065D210 /* ConnectViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +204,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0D2E3132C78E2050065D210 /* ContentView.swift in Sources */,
+				F0D2E32B2C78E3090065D210 /* ScanView.swift in Sources */,
+				F0D2E32D2C78E32D0065D210 /* ConnectView.swift in Sources */,
+				F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */,
+				F04DD7112C92B6E100232274 /* GraphView.swift in Sources */,
+				F0D2E3252C78E2A30065D210 /* UUIDs.swift in Sources */,
+				F0D2E32F2C78E34D0065D210 /* ScanViewModel.swift in Sources */,
+				F0D2E3272C78E2BE0065D210 /* CentralUseCase.swift in Sources */,
+				F0D2E3292C78E2DA0065D210 /* PeripheralUseCase.swift in Sources */,
+				F0D2E3312C78E36C0065D210 /* ConnectViewModel.swift in Sources */,
+				F0D2E3232C78E2860065D210 /* Peripheral.swift in Sources */,
 				F0D2E3112C78E2050065D210 /* SwiftBLEArduinoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +351,14 @@
 				DEVELOPMENT_TEAM = NLFZ5XXJLA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to connect";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to connect";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +383,14 @@
 				DEVELOPMENT_TEAM = NLFZ5XXJLA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to connect";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to connect";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
