@@ -1,0 +1,51 @@
+{
+  "originHash" : "ccc727310637079b7355ccf59e7d153c26677020c1a43e177b78cc9df7963c0f",
+  "pins" : [
+    {
+      "identity" : "multipartformdata",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/grdsdev/MultipartFormData",
+      "state" : {
+        "revision" : "ed7abea9cfc6c3b5e77a73fe6842c57a372d2017",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "supabase-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/supabase/supabase-swift.git",
+      "state" : {
+        "revision" : "b159fb95a300cb2e85a193688748e2a10b612dea",
+        "version" : "2.20.0"
+      }
+    },
+    {
+      "identity" : "swift-concurrency-extras",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-concurrency-extras",
+      "state" : {
+        "revision" : "6054df64b55186f08b6d0fd87152081b8ad8d613",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "ffca28be3c9c6a86a579949d23f68818a4b9b5d8",
+        "version" : "3.8.0"
+      }
+    },
+    {
+      "identity" : "xctest-dynamic-overlay",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
+      "state" : {
+        "revision" : "770f990d3e4eececb57ac04a6076e22f8c97daeb",
+        "version" : "1.4.2"
+      }
+    }
+  ],
+  "version" : 3
+}

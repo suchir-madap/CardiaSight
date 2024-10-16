@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD70E2C92A62000232274 /* ReconstructionV1.swift */; };
 		F04DD7112C92B6E100232274 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DD7102C92B6E100232274 /* GraphView.swift */; };
+		F0A21D382CAE3FCF00294492 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A21D372CAE3FCF00294492 /* AppView.swift */; };
+		F0A21D3A2CAE407000294492 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A21D392CAE407000294492 /* Secrets.swift */; };
+		F0A21D3C2CAE43B100294492 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A21D3B2CAE43B100294492 /* Model.swift */; };
+		F0A21D3E2CAE446200294492 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A21D3D2CAE446200294492 /* LoginView.swift */; };
+		F0A21D402CAE452B00294492 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		F0A21D422CAE452B00294492 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		F0A21D482CAE4A7800294492 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = F0A21D472CAE4A7800294492 /* Supabase */; };
 		F0D2E3112C78E2050065D210 /* SwiftBLEArduinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */; };
 		F0D2E3152C78E2070065D210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3142C78E2070065D210 /* Assets.xcassets */; };
 		F0D2E3182C78E2070065D210 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D2E3172C78E2070065D210 /* Preview Assets.xcassets */; };
@@ -25,6 +32,10 @@
 /* Begin PBXFileReference section */
 		F04DD70E2C92A62000232274 /* ReconstructionV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconstructionV1.swift; sourceTree = "<group>"; };
 		F04DD7102C92B6E100232274 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		F0A21D372CAE3FCF00294492 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		F0A21D392CAE407000294492 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		F0A21D3B2CAE43B100294492 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F0A21D3D2CAE446200294492 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F0D2E30D2C78E2050065D210 /* SwiftBLEArduino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBLEArduino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D2E3102C78E2050065D210 /* SwiftBLEArduinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBLEArduinoApp.swift; sourceTree = "<group>"; };
 		F0D2E3142C78E2070065D210 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A21D422CAE452B00294492 /* (null) in Frameworks */,
+				F0A21D402CAE452B00294492 /* (null) in Frameworks */,
+				F0A21D482CAE4A7800294492 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +135,8 @@
 				F0D2E32A2C78E3090065D210 /* ScanView.swift */,
 				F0D2E32C2C78E32D0065D210 /* ConnectView.swift */,
 				F04DD7102C92B6E100232274 /* GraphView.swift */,
+				F0A21D372CAE3FCF00294492 /* AppView.swift */,
+				F0A21D3D2CAE446200294492 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +146,8 @@
 			children = (
 				F0D2E32E2C78E34D0065D210 /* ScanViewModel.swift */,
 				F0D2E3302C78E36C0065D210 /* ConnectViewModel.swift */,
+				F0A21D392CAE407000294492 /* Secrets.swift */,
+				F0A21D3B2CAE43B100294492 /* Model.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,6 +168,9 @@
 			dependencies = (
 			);
 			name = SwiftBLEArduino;
+			packageProductDependencies = (
+				F0A21D472CAE4A7800294492 /* Supabase */,
+			);
 			productName = SwiftBLEArduino;
 			productReference = F0D2E30D2C78E2050065D210 /* SwiftBLEArduino.app */;
 			productType = "com.apple.product-type.application";
@@ -178,6 +199,9 @@
 				Base,
 			);
 			mainGroup = F0D2E3042C78E2050065D210;
+			packageReferences = (
+				F0A21D462CAE4A7800294492 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			productRefGroup = F0D2E30E2C78E2050065D210 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -207,13 +231,17 @@
 				F0D2E32B2C78E3090065D210 /* ScanView.swift in Sources */,
 				F0D2E32D2C78E32D0065D210 /* ConnectView.swift in Sources */,
 				F04DD70F2C92A62100232274 /* ReconstructionV1.swift in Sources */,
+				F0A21D3E2CAE446200294492 /* LoginView.swift in Sources */,
 				F04DD7112C92B6E100232274 /* GraphView.swift in Sources */,
 				F0D2E3252C78E2A30065D210 /* UUIDs.swift in Sources */,
 				F0D2E32F2C78E34D0065D210 /* ScanViewModel.swift in Sources */,
 				F0D2E3272C78E2BE0065D210 /* CentralUseCase.swift in Sources */,
+				F0A21D3C2CAE43B100294492 /* Model.swift in Sources */,
 				F0D2E3292C78E2DA0065D210 /* PeripheralUseCase.swift in Sources */,
+				F0A21D382CAE3FCF00294492 /* AppView.swift in Sources */,
 				F0D2E3312C78E36C0065D210 /* ConnectViewModel.swift in Sources */,
 				F0D2E3232C78E2860065D210 /* Peripheral.swift in Sources */,
+				F0A21D3A2CAE407000294492 /* Secrets.swift in Sources */,
 				F0D2E3112C78E2050065D210 /* SwiftBLEArduinoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F0A21D462CAE4A7800294492 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0A21D472CAE4A7800294492 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0A21D462CAE4A7800294492 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F0D2E3052C78E2050065D210 /* Project object */;
 }
